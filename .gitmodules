@@ -1,0 +1,9 @@
+[submodule "_vim/pack/mypackage/start/vim-go"]
+	path = _vim/pack/mypackage/start/vim-go
+	url = git@github.com:fatih/vim-go.git
+[submodule "_vim/pack/mypackage/start/nerdtree"]
+	path = _vim/pack/mypackage/start/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule "_vim/pack/mypackage/start/vim-gitgutter"]
+	path = _vim/pack/mypackage/start/vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
