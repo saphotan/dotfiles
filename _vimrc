@@ -1,7 +1,55 @@
-"
-" A (not so) minimal vimrc.
-"
+" Color
+syntax enable
+"colorscheme atom-dark-256 
+"colorscheme tender 
+colorscheme molokai
+let g:rehash256 = 1
 
+
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/Users/sahot/.vim/bundles/./dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/Users/sahot/.vim/bundles/./dein')
+  call dein#begin('/Users/sahot/.vim/bundles/./dein')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/sahot/.vim/bundles/./dein/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here:
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('davidhalter/jedi-vim')
+
+  " You can specify revision/branch/tag.
+  call dein#add('Shougo/deol.nvim', { 'rev': '01203d4c9' })
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
+"End dein Scripts-------------------------
+
+
+
+" A (not so) minimal vimrc.
 " You want Vim, not vi. When Vim finds a vimrc, 'nocomptaible' is set anyway.
 " We set it explicitely to make our position clear!
 set nocompatible
@@ -57,8 +105,8 @@ endif
 set encoding=utf-8
 
 "ノーマルモードに戻る
-"※ ESCにマップすると方向キーでABCDが入力されてしまう問題のためコメントアウト
-"inoremap <silent> jj <ESC>
+"※ ESCにマップすると方向キーでABCDが入力されてしまう問題のためコメントアウト -> なおっていた
+inoremap <silent> jj <ESC>
 
 set number "行番号を表示する
 set title "編集中のファイル名を表示
@@ -76,8 +124,8 @@ set smartindent
 syntax on
 
 "ノーマルモード時に、カーソル位置で改行を挿入する
-"※ ESCにマップすると方向キーでABCDが入力されてしまう問題のためコメントアウト
-" nmap <CR> i<CR><ESC>
+"※ ESCにマップすると方向キーでABCDが入力されてしまう問題のためコメントアウト -> なおっていた
+nnoremap <CR> i<CR><ESC>
 
 "ウィンドウ操作系の <C-w> を s に置き換える
 nnoremap s <Nop>
@@ -93,7 +141,8 @@ nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 
 " 挿入モード終了時に IME 状態を保存しない
-"※ ESCにマップすると方向キーでABCDが入力されてしまう問題のためコメントアウト
+"※ ESCにマップすると方向キーでABCDが入力されてしまう問題のためコメントアウト -> なおっていない…
+"※ GoogleIMEの設定で対応することにした(キーマップのとこ)
 "inoremap <silent> <Esc> <Esc>
 "inoremap <silent> <C-[> <Esc>
 
@@ -102,3 +151,10 @@ inoremap <silent><C-j> <C-^>
 
 "NERDTreeを起動
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+"他のバッファをすべて閉じた時にNERDTreeが開いていたらNERDTreeも一緒に閉じる。
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Ctrl + n/p でバッファ切り替え
+nnoremap <silent><C-n> :bn<CR>
+nnoremap <silent><C-p> :bp<CR>
