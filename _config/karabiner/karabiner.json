@@ -163,7 +163,7 @@
                         ]
                     },
                     {
-                        "description": "Command + space rewrite",
+                        "description": "[user]Command + space rewrite",
                         "manipulators": [
                             {
                                 "from": {
@@ -349,7 +349,7 @@
                         ]
                     },
                     {
-                        "description": "SpaceFN: Space+delete to delete forward",
+                        "description": "[user]SpaceFN: Space+delete to delete forward",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -370,6 +370,57 @@
                                 "to": [
                                     {
                                         "key_code": "delete_forward"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "[user]SpaceFN: Space+u to Page Up, Space+n to Page Down",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "spacefn_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_up"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "spacefn_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_down"
                                     }
                                 ],
                                 "type": "basic"
