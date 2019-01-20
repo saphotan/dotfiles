@@ -163,6 +163,27 @@
                         ]
                     },
                     {
+                        "description": "[user]fn + -(hyphen) to keypad hyphen",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "hyphen",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "keypad_hyphen"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "[user]Command + space rewrite",
                         "manipulators": [
                             {
