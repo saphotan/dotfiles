@@ -185,7 +185,7 @@
                         ]
                     },
                     {
-                        "description": "[user]Team viewer",
+                        "description": "[user]Command to team viewer",
                         "manipulators": [
                             {
                                 "conditions": [
