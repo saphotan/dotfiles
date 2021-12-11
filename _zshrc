@@ -106,3 +106,6 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+# git alias
+alias gitallpush='git add .; git cm -m "update"; git push origin master'
